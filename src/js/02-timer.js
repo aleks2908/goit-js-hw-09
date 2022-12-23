@@ -12,7 +12,6 @@ const daysToTarget = document.querySelector('span[data-days]');
 const hoursToTarget = document.querySelector('span[data-hours]');
 const minutesToTarget = document.querySelector('span[data-minutes]');
 const secondsToTarget = document.querySelector('span[data-seconds]');
-// console.log("​days", days)
 
 flatpickr('#datetime-picker', {
   enableTime: true,
