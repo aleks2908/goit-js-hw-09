@@ -4,7 +4,6 @@ import Notiflix from 'notiflix';
 
 const startBtn = document.querySelector('button[data-start]');
 startBtn.disabled = true;
-let timeToTarget = '';
 let selectedDate = '';
 startBtn.addEventListener('click', startCount);
 
@@ -21,7 +20,6 @@ flatpickr('#datetime-picker', {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       startBtn.disabled = true;
-      // alert('Please choose a date in the future');
       Notiflix.Notify.warning('Please choose a date in the future');
     } else {
       startBtn.disabled = false;
@@ -42,7 +40,6 @@ function startCount() {
 
     if (selectedDate - currentTime < 1000) {
       clearInterval(interval);
-      // return;
     }
   }, 1000);
 }
