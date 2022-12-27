@@ -5,23 +5,20 @@ form.addEventListener('submit', onClick);
 
 function onClick(evt) {
   evt.preventDefault();
+  let delayValue = Number(form.elements.delay.value);
+  const stepValue = Number(form.elements.step.value);
+  const amountValue = Number(form.elements.amount.value);
+  form.reset();
 
-  const allInput = document.querySelectorAll('input');
-  let delay = Number(allInput[0].value);
-  const step = Number(allInput[1].value);
-  const amount = Number(allInput[2].value);
-
-  evt.currentTarget.reset();
-
-  for (let i = 1; i <= amount; i += 1) {
-    createPromise(i, delay)
+  for (let i = 1; i <= amountValue; i += 1) {
+    createPromise(i, delayValue)
       .then(res => {
         Notiflix.Notify.success(res);
       })
       .catch(rej => {
         Notiflix.Notify.failure(rej);
       });
-    delay += step;
+    delayValue += stepValue;
   }
 }
 
